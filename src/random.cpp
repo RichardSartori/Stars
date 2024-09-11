@@ -1,9 +1,5 @@
 #include "random.hpp"
 
-float Random::getFloat(void) {
-	return Random::getFloat(1.0f);
-}
-
 float Random::getFloat(float max) {
 	return Random::getFloat(0.0f, max);
 }
@@ -19,6 +15,12 @@ Random& Random::get(void) {
 	return singleton;
 }
 
-Random::Random(void)
-	: rd(), gen(rd())
-{}
+Random::Random(void) {
+#ifdef STAR_DEBUG
+	std::size_t SEED = 42;
+	this->gen = std::mt19937(SEED);
+#else // STAR_DEBUG
+	std::random_device rd;
+	this->gen = std::mt19937(rd());
+#endif // STAR_DEBUG
+}
