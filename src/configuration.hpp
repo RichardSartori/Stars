@@ -8,13 +8,13 @@
 namespace conf {
 
 	namespace window {
-		constexpr char const* NAME = "Stars";
+		static constexpr char const* NAME = "Stars";
 		// getDesktopMode can not be used for static initialization
 		//static sf::VideoMode const MODE = sf::VideoMode::getDesktopMode();
 		static sf::VideoMode const MODE = { 4480, 1440, 24 };
 		static sf::Vector2u const SIZE = { MODE.width, MODE.height };
-		sf::Vector2f const SIZE_F = static_cast<sf::Vector2f>(SIZE);
-		sf::Vector2f const CENTER_F = SIZE_F / 2.0f;
+		static sf::Vector2f const SIZE_F = static_cast<sf::Vector2f>(SIZE);
+		static sf::Vector2f const CENTER_F = SIZE_F / 2.0f;
 	}
 
 	namespace time {
@@ -33,8 +33,7 @@ namespace conf {
 		static constexpr float FAR = 10.0f;
 		static constexpr float NEAR = 0.1f;
 		static constexpr float SPEED = 1.0f;
+		static constexpr std::size_t MAX_GEN_FAILS = 10;
 		static constexpr char const* TEXTURE_PATH = "textures/star.png";
 	}
-
-	constexpr std::size_t MAX_FAILS = 3 * stars::COUNT;
 }

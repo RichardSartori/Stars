@@ -32,7 +32,7 @@ Star Star::from_random(void) {
 		// skip stars that dissapear on screen
 		if (!screen.contains(position)) return Star{ position, z };
 		++fails;
-		if (fails < conf::MAX_FAILS) continue;
+		if (fails < conf::stars::MAX_GEN_FAILS) continue;
 		std::cerr << "too many failed attempts at creating stars\n";
 		std::exit(EXIT_FAILURE);
 	}
