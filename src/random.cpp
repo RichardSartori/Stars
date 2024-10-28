@@ -18,9 +18,9 @@ Random& Random::get(void) {
 Random::Random(void) {
 #ifdef STAR_DEBUG
 	std::size_t SEED = 42;
-	this->gen = std::mt19937(SEED);
+	new (&this->gen) std::minstd_rand(SEED);
 #else // STAR_DEBUG
-	std::random_device rd;
-	this->gen = std::mt19937(rd());
+	std::random_device rd{};
+	new (&this->gen) std::minstd_rand(rd());
 #endif // STAR_DEBUG
 }

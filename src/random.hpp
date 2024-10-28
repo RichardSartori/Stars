@@ -10,7 +10,7 @@ public:
 
 private:
 	// members
-	std::mt19937 gen;
+	std::minstd_rand gen;
 
 	// methods
 	static Random& get(void);
