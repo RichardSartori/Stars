@@ -9,9 +9,7 @@ namespace conf {
 
 	namespace window {
 		static constexpr char const* NAME = "Stars";
-		// getDesktopMode can not be used for static initialization
-		//static sf::VideoMode const MODE = sf::VideoMode::getDesktopMode();
-		static sf::VideoMode const MODE = { 4480, 1440, 24 };
+		static sf::VideoMode const MODE = { 2560, 1440, 24 };
 		static sf::Vector2u const SIZE = { MODE.width, MODE.height };
 		static sf::Vector2f const SIZE_F = static_cast<sf::Vector2f>(SIZE);
 		static sf::Vector2f const CENTER_F = SIZE_F / 2.0f;
@@ -20,11 +18,6 @@ namespace conf {
 	namespace time {
 		static constexpr uint32_t MAX_FPS = 144;
 		static constexpr float DELTA = 1.0f / static_cast<float>(MAX_FPS);
-	}
-
-	namespace math {
-		// FIXME: use std::numbers::sqrt2_v<float>;
-		static constexpr float sqrt2 = 1.4142135f;
 	}
 
 	namespace stars {

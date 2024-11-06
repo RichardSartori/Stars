@@ -44,14 +44,10 @@ void Star::update_geometry(sf::VertexArray& va, std::size_t index) const {
 	sf::Vector2f position = conf::window::CENTER_F + this->position * scale;
 	float radius = conf::stars::RADIUS * scale;
 
-	// my screen resolution is fucked up
-	float xradius = conf::math::sqrt2 * radius;
-	float yradius = radius;
-
-	va[index + 0].position = { position.x - xradius, position.y - yradius };
-	va[index + 1].position = { position.x + xradius, position.y - yradius };
-	va[index + 2].position = { position.x + xradius, position.y + yradius };
-	va[index + 3].position = { position.x - xradius, position.y + yradius };
+	va[index + 0].position = { position.x - radius, position.y - radius };
+	va[index + 1].position = { position.x + radius, position.y - radius };
+	va[index + 2].position = { position.x + radius, position.y + radius };
+	va[index + 3].position = { position.x - radius, position.y + radius };
 
 	float depth_ratio = this->depth - conf::stars::NEAR;
 	depth_ratio /= conf::stars::FAR - conf::stars::NEAR;
