@@ -19,10 +19,14 @@ file(GLOB_RECURSE source_files
 )
 
 add_executable(${PROJECT_NAME} ${source_files})
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DSTAR_DEBUG")
 target_include_directories(${PROJECT_NAME} PRIVATE "src")
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+	$<$<CONFIG:Debug>:-DSTARS_DEBUG>
+	$<$<CONFIG:Release>:-O2>
+)
 
 add_custom_command(
 	TARGET ${PROJECT_NAME}

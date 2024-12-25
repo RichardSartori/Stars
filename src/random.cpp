@@ -16,11 +16,11 @@ Random& Random::get(void) {
 }
 
 Random::Random(void) {
-#ifdef STAR_DEBUG
+#ifdef STARS_DEBUG
 	std::size_t SEED = 42;
 	new (&this->gen) std::minstd_rand(SEED);
-#else // STAR_DEBUG
+#else // STARS_DEBUG
 	std::random_device rd{};
 	new (&this->gen) std::minstd_rand(rd());
-#endif // STAR_DEBUG
+#endif // STARS_DEBUG
 }

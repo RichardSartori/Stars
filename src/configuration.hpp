@@ -24,7 +24,7 @@ namespace conf {
 	}
 
 	namespace stars {
-		inline constexpr std::size_t COUNT = 100000;
+		inline constexpr std::size_t COUNT = 100'000;
 		inline constexpr float RADIUS = 40.0f;
 		inline constexpr float FAR = 10.0f;
 		inline constexpr float NEAR = 0.1f;
