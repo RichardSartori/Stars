@@ -24,7 +24,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-	$<$<CONFIG:Debug>:-DSTARS_DEBUG>
+	$<$<CONFIG:Debug>:-g -O0 -DSTARS_DEBUG>
 	$<$<CONFIG:Release>:-O2>
 )
 
